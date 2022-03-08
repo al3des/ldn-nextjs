@@ -11,7 +11,7 @@ import { Typography } from "@mui/material";
 import UpcomingEvents from "../src/components/widgets/upcoming-events";
 import { getAllEvents } from "../src/lib/graphcms";
 
-function App({upcomingEvents}) {
+function App({ upcomingEvents, pastEvents }) {
   return (
     <>
       <Box
@@ -74,35 +74,69 @@ function App({upcomingEvents}) {
         </Box>
       </Box>
       {/* end of main */}
+      {/* ANIMATED BACKGROUND */}
       <Box className={styles.background} sx={{ zIndex: -9999 }}>
-        <AnimatedBackgroundElements itemsCount={50} />
+        <AnimatedBackgroundElements itemsCount={20} />
       </Box>
+      {/* EVENTS */}
       <Box
+        id="events"
         sx={{
           minHeight: "100vh",
           mx: "auto",
           p: 6,
           backgroundColor: "background.default",
-          align: 'center'
+          align: "center",
         }}
       >
-        <Typography className={styles.neonText} color="primary" variant="h4" component='h2' align='center' sx={{maxWidth: 'sm', mx: 'auto', mb: 10}}>
-          Upcoming events
-        </Typography>
-        <UpcomingEvents items={upcomingEvents} />
+        {upcomingEvents.length > 0 && (
+          <>
+            <Typography
+              className={styles.neonText}
+              color="primary"
+              variant="h4"
+              component="h2"
+              align="center"
+              sx={{ maxWidth: "sm", mx: "auto", mb: 10 }}
+            >
+              Upcoming events
+            </Typography>
+            <UpcomingEvents items={upcomingEvents} />
+          </>
+        )}
+        {pastEvents.length > 0 && (
+          <>
+            <Typography
+              className={styles.neonText}
+              color="primary"
+              variant="h4"
+              component="h2"
+              align="center"
+              sx={{ maxWidth: "sm", mx: "auto", mb: 10 }}
+            >
+              Past events
+            </Typography>
+            <UpcomingEvents items={pastEvents} />
+          </>
+        )}
       </Box>
     </>
   );
 }
 export default App;
 
-export async function getStaticProps(){
-
-  const upcomingEvents = await getAllEvents()
-
+export async function getStaticProps() {
+  const events = await getAllEvents();
+  const upcomingEvents = events.filter(
+    (event) => new Date(event.date) > new Date()
+  );
+  const pastEvents = events.filter(
+    (event) => new Date(event.date) < new Date()
+  );
   return {
     props: {
-      upcomingEvents
-    }
-  }
+      upcomingEvents,
+      pastEvents,
+    },
+  };
 }

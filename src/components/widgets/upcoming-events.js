@@ -14,8 +14,7 @@ export default function UpcomingEvents({ items }) {
     <Box>
       {items &&
         items.map((event) => (
-          <Card sx={{ maxWidth: 345 }}>
-        
+          <Card key={event.id} sx={{ maxWidth: 345 }}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {event.title}

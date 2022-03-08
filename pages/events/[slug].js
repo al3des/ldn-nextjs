@@ -32,7 +32,7 @@ export default function Event({ event }) {
         <meta property="og:url" content={`https://ladoblenelson.de/events/${event.slug}`} />
         <meta
           property="og:description"
-          content={`La Doble Nelson @ ${event.venue.name} | ${new Date(event.date).toLocaleString('de-DE')}`}
+          content={`La Doble Nelson @ ${event.venue.name} | ${new Date(event.date).toLocaleString('us-US')}`}
           key="description"
         />
         <meta property="og:type" content="website" />
@@ -45,7 +45,7 @@ export default function Event({ event }) {
         <meta property="og:image:height" content={event.flyer.height} />
       </Head>
       <Box sx={{ p: 2 }}>
-        <Link href="/">{"<-"} back to home</Link>
+        <Link href="/#events">{"<-"} back to home</Link>
         <Typography variant="h2" component="h2" mb={2}>
           {event.title}
         </Typography>
