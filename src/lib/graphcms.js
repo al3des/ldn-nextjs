@@ -66,6 +66,7 @@ export async function getEventBySlug(slug) {
         slug
         description
         date
+        time
         price
         flyer {
           id
