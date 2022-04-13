@@ -28,11 +28,12 @@ async function fetchAPI(query, { variables, preview } = {}) {
 export async function getAllEvents() {
   const data = await fetchAPI(`
         query getAllEvents{
-            events {
+            events(orderBy:createdAt_DESC){
                 id
                 title
                 slug
                 date
+                time
                 price
                 flyer {
                     id

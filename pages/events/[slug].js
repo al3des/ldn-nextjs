@@ -67,10 +67,10 @@ export default function Event({ event }) {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  hour12: false
-                })}hs
+                  // hour: '2-digit',
+                  // minute: '2-digit',
+                  // hour12: false
+                })} - {event.time}hs
               </ListItemText>
             </ListItem>
             <ListItem disablePadding>

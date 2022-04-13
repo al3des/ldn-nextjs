@@ -11,10 +11,10 @@ import Image from "next/image";
 
 export default function UpcomingEvents({ items }) {
   return (
-    <Box>
+    <Box sx={{ mx: 'auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 5}}>
       {items &&
         items.map((event) => (
-          <Card key={event.id} sx={{ maxWidth: 345 }}>
+          <Card key={event.id} >
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {event.title}
