@@ -95,3 +95,49 @@ export async function getEventBySlug(slug) {
 
   return data.event;
 }
+
+export async function getAllMembers(){
+
+  const data = await fetchAPI(`
+    query AllMembers {
+      members {
+        id
+        name
+        text
+        instrument
+        profilePicture {
+          id
+          url
+          width
+          height
+        }
+      }
+    }
+  `)
+
+  return data.members
+}
+
+export async function getMemberById(id){
+  const data = await fetchAPI(`
+    query MemberById($id: ID!) {
+      member(where: {id: $id}){
+        id
+        name
+        instrument
+        text
+        profilePicture {
+          id
+          url
+          width
+          height
+        }
+      }
+    }
+  `,{
+    variables: {
+      id
+    }
+  })
+return data.member
+}

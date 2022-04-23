@@ -16,8 +16,13 @@ let theme = createTheme({
       borderRadius: 20,
       padding: 30,
     },
+    h6: {
+
+      fontFamily: `'Fredoka One', sans-serif`
+    }
   },
 });
+
 
 theme = responsiveFontSizes(theme);
 
