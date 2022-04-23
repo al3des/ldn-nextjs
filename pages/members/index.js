@@ -20,7 +20,7 @@ export default function Members(props) {
         }}
       >
         {props.members.map((member) => (
-          <Box>
+          <Box key={member.id}>
             <Typography variant='h6'>{member.name}</Typography>
             <Box sx={{ position: "relative", width: "100%", height: "400px" }}>
              <Link href={`/members/${member.id}`}>
