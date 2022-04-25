@@ -11,21 +11,31 @@ import Image from "next/image";
 
 export default function UpcomingEvents({ items }) {
   return (
-    <Box sx={{ mx: 'auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 5}}>
+    <Box
+      sx={{
+        mx: "auto",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gap: 5,
+      }}
+    >
       {items &&
         items.map((event) => (
-          <Card key={event.id} >
+          <Card key={event.id}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {event.title}
               </Typography>
-              <CardMedia
-              height="450"
-            //   image=?{event.flyer.url}
-              alt="green iguana"
-            >
-                <Image src={event.flyer.url} height={450} width={350} objectFit='contain' />
-            </CardMedia>
+              <CardMedia alt="green iguana">
+                <Image
+                  src={event.flyer.url}
+                  height={550}
+                  width={450}
+                  layout="responsive"
+                  objectFit="contain"
+                />
+              </CardMedia>
+
               {/* <Typography variant="body2" color="text.secondary">
                 Lizards are a widespread group of squamate reptiles, with over
                 6,000 species, ranging across all continents except Antarctica
@@ -38,10 +48,8 @@ export default function UpcomingEvents({ items }) {
                 </Link>
               </Button>
               <Button size="small">
-                  <Link href={`/events/${event.slug}`}>
-                  Full details
-                  </Link>
-                  </Button>
+                <Link href={`/events/${event.slug}`}>Full details</Link>
+              </Button>
             </CardActions>
           </Card>
         ))}
