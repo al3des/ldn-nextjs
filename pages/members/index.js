@@ -12,7 +12,13 @@ export default function Members(props) {
         <Image src={logo} width={300} height={300} />
         <Typography variant="h2">is:</Typography>
       </Box>
-      <Box sx={{ display: "grid", gridTemplateColumns: "300px auto", gap: 5 }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: ["1fr", "300px auto"],
+          gap: 5,
+        }}
+      >
         <Typography variant="h5">
           <i>La Doble Nelson</i> is a Berlin-based (and formed) Cumbia band with
           integrants from Argentina, Chile, The Netherlands and Spain. Taking
@@ -24,7 +30,10 @@ export default function Members(props) {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
+            gridTemplateColumns: [
+              "1fr",
+              "repeat(auto-fill, minmax(500px, 1fr))",
+            ],
             gap: 2,
             flexGrow: 1,
           }}
