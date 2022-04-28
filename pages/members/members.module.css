@@ -2,3 +2,21 @@
     border-radius: 5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.underlinedTitle {
+    position: relative;
+    z-index: 1;
+    font-weight: 800;
+    max-width: 50%;
+    color: white;
+}
+
+.underlinedTitle::after {
+content: '';
+ border-bottom: 10px solid #ff1493;
+position: absolute;
+bottom: 10px;
+z-index: -1;
+left: 0;
+width: 80%;
+}

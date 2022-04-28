@@ -23,8 +23,35 @@ export default function Members(props) {
           <Image src={logo} width={300} height={300} />
           {/* <Typography variant="h2">is:</Typography> */}
         </Box>
-        <Box sx={{ px: 5 }}>
-        <Typography variant="h5" sx={{mb: 5, maxWidth: ['100%', '100%', '80%'], mx: 'auto'}}>{props.pages.text}</Typography>
+        <Box
+          sx={{
+            bgcolor: "#3d144c",
+          }}
+        >
+          <Box
+            sx={{
+              p: 5,
+              maxWidth: ["100%", "100%", "80%"],
+              mx: "auto",
+            }}
+          >
+            <Typography variant="h2" className={styles.underlinedTitle}>
+              About
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={
+                {
+                  // mb: 5,
+                  // maxWidth: ["100%", "100%", "80%"],
+                }
+              }
+            >
+              {props.pages.text}
+            </Typography>
+          </Box>
+        </Box>
+        <Box sx={{ py: 5 }}>
           <YoutubeEmbed embedId="DXsLXf6UBw4" />
         </Box>
         {/* <Box
@@ -35,7 +62,15 @@ export default function Members(props) {
             p: 5,
           }}
         > */}
-          <div></div>
+        <Box
+        sx={{
+          p: 5,
+
+        }}
+        >
+          <Typography variant="h2" className={styles.underlinedTitle}>
+            We are
+          </Typography>
           <Box
             sx={{
               display: "grid",
@@ -46,7 +81,6 @@ export default function Members(props) {
               ],
               gap: 2,
               flexGrow: 1,
-              p:5
             }}
           >
             {shuffleArray(props.members).map((member) => (
@@ -77,6 +111,7 @@ export default function Members(props) {
               </Box>
             ))}
           </Box>
+        </Box>
         {/* </Box> */}
       </Box>
     </>
