@@ -96,8 +96,7 @@ export async function getEventBySlug(slug) {
   return data.event;
 }
 
-export async function getAllMembers(){
-
+export async function getAllMembers() {
   const data = await fetchAPI(`
     query AllMembers {
       members {
@@ -113,13 +112,14 @@ export async function getAllMembers(){
         }
       }
     }
-  `)
+  `);
 
-  return data.members
+  return data.members;
 }
 
-export async function getMemberById(id){
-  const data = await fetchAPI(`
+export async function getMemberById(id) {
+  const data = await fetchAPI(
+    `
     query MemberById($id: ID!) {
       member(where: {id: $id}){
         id
@@ -134,10 +134,33 @@ export async function getMemberById(id){
         }
       }
     }
-  `,{
-    variables: {
-      id
+  `,
+    {
+      variables: {
+        id,
+      },
     }
-  })
-return data.member
+  );
+  return data.member;
+}
+
+export async function getPageBySlug(locale) {
+  const data = await fetchAPI(
+    `
+      query getPageBySlug($locale: Locale!){
+        pages(locales: [$locale]){
+          id
+          title
+          text
+        }
+      }
+    `,
+    {
+      variables: {
+        locale,
+      },
+    }
+  );
+
+  return data.pages[0];
 }
