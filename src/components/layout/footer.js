@@ -10,6 +10,7 @@ export default function Footer() {
   return (
     <Box
       sx={(theme) => ({
+          bgcolor: 'background.default',
         color: theme.palette.aqua.main,
         p: 5,
       })}

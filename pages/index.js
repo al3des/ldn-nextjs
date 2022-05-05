@@ -85,7 +85,7 @@ function App({ upcomingEvents, pastEvents }) {
           minHeight: "100vh",
           mx: "auto",
           p: 6,
-          backgroundColor: "background.default",
+          backgroundColor: "background.paper",
           align: "center",
         }}
       >

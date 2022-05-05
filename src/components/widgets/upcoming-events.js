@@ -21,7 +21,7 @@ export default function UpcomingEvents({ items }) {
     >
       {items &&
         items.map((event) => (
-          <Card key={event.id}>
+          <Card key={event.id} sx={{bgcolor: 'secondary.main'}}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {event.title}

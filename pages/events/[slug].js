@@ -44,7 +44,7 @@ export default function Event({ event }) {
         <meta property="og:image:width" content={event.flyer.width} />
         <meta property="og:image:height" content={event.flyer.height} />
       </Head>
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: '100vh' }}>
         <Link href="/#events">{"<-"} back to home</Link>
         <Typography variant="h2" component="h2" mb={2}>
           {event.title}
