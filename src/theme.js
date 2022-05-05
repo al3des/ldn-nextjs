@@ -7,6 +7,16 @@ let theme = createTheme({
     primary: {
       main: "#FF5D8F",
     },
+    secondary: {
+      main: '#652EC7'
+    },
+    background: {
+      default: '#050021',
+      paper: '#120052'
+    },
+    aqua: {
+      main: '#00C2BA'
+    }
   },
   typography: {
     fontFamily: "Kanit, sans-serif",

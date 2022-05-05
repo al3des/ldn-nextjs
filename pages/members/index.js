@@ -1,16 +1,25 @@
+import React from "react";
+import Image from "next/image";
+
 import { List, ListItem, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { getAllMembers, getPageBySlug } from "../../src/lib/graphcms";
-import Image from "next/image";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+
 import logo from "../../src/assets/logo-fuccia.svg";
-import Link from "../../src/Link";
 import styles from "./members.module.css";
 import YoutubeEmbed from "../../src/components/widgets/youtube-embed";
 
 export default function Members(props) {
+  const [loadVideo, setLoadVideo] = React.useState(false);
   return (
     <>
-      <Box sx={{ background: "#120052", minHeight: "100vh" }}>
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          minHeight: "100vh",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -23,9 +32,12 @@ export default function Members(props) {
           <Image src={logo} width={300} height={300} />
           {/* <Typography variant="h2">is:</Typography> */}
         </Box>
+
         <Box
           sx={{
-            bgcolor: "#3d144c",
+            bgcolor: "secondary.main",
+            display: "flex",
+            flexDirection: ["column-reverse", "column-reverse", "row"],
           }}
         >
           <Box
@@ -38,35 +50,63 @@ export default function Members(props) {
             <Typography variant="h2" className={styles.underlinedTitle}>
               About
             </Typography>
-            <Typography
-              variant="h5"
-              sx={
-                {
-                  // mb: 5,
-                  // maxWidth: ["100%", "100%", "80%"],
-                }
-              }
-            >
-              {props.pages.text}
-            </Typography>
+            <Typography variant="h5">{props.pages.text}</Typography>
+          </Box>
+          <Box
+            sx={{
+              position: "relative",
+              minWidth: "50%",
+              minHeight: "300px",
+              flexGrow: 1,
+            }}
+          >
+            <Image src="/stage.jpg" layout="fill" objectFit="cover" />
           </Box>
         </Box>
-        <Box sx={{ py: 5 }}>
-          <YoutubeEmbed embedId="DXsLXf6UBw4" />
-        </Box>
-        {/* <Box
+        <Box
           sx={{
-            // display: "grid",
-            gridTemplateColumns: ["1fr", "1fr", "300px auto"],
-            gap: 5,
+            py: 0,
+            bgcolor: "primary.main",
+          }}
+        >
+          {(!loadVideo && (
+            <Box
+              sx={{
+                minHeight: "100vh",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+                gap: 5,
+                py: 5,
+              }}
+            >
+              <>
+                <Typography variant="h1" component="h3">
+                  Meet
+                </Typography>
+                <Box sx={{ flexGrow: 0, fontSize: '10rem' }}>
+
+                  <PlayCircleOutlineIcon
+                    fontSize="inherit"
+                    onClick={() => setLoadVideo(true)}
+                  />
+                </Box>
+                <Typography variant="h1" component="h3">
+                  Us
+                </Typography>
+              </>
+            </Box>
+          )) || (
+            <Box sx={{ p: 5 }}>
+              <YoutubeEmbed embedId="DXsLXf6UBw4" autoplay={true} />
+            </Box>
+          )}
+        </Box>
+        <Box
+          sx={{
             p: 5,
           }}
-        > */}
-        <Box
-        sx={{
-          p: 5,
-
-        }}
         >
           <Typography variant="h2" className={styles.underlinedTitle}>
             We are
@@ -112,7 +152,6 @@ export default function Members(props) {
             ))}
           </Box>
         </Box>
-        {/* </Box> */}
       </Box>
     </>
   );

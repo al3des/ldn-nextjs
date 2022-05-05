@@ -2,6 +2,7 @@ import Link from "../../Link";
 import { useRouter } from "next/router";
 
 import Box from "@mui/material/Box";
+import Footer from "./footer";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -20,6 +21,7 @@ export default function Layout({ children }) {
           es
         </Link>
       </Box>
+      <Footer />
     </Box>
   );
 }

@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import styles from './youtube-embed.module.css'
 
 
-const YoutubeEmbed = ({ embedId }) => (
+const YoutubeEmbed = ({ embedId, autoplay }) => (
   <div className={styles.videoResponsive}>
     <iframe
       width="853"
       height="480"
-      src={`https://www.youtube.com/embed/${embedId}`}
+      src={`https://www.youtube.com/embed/${embedId}?autoplay=${autoplay && '1' || '0'}`}
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
