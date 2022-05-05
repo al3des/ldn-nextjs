@@ -77,7 +77,7 @@ export default function Members(props) {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-evenly",
-                gap: 5,
+                gap: [0, 3, 5],
                 py: 5,
               }}
             >
@@ -85,7 +85,7 @@ export default function Members(props) {
                 <Typography variant="h1" component="h3">
                   Meet
                 </Typography>
-                <Box sx={{ flexGrow: 0, fontSize: '10rem' }}>
+                <Box sx={{ flexGrow: 0, fontSize: '10rem', display: 'flex' }}>
 
                   <PlayCircleOutlineIcon
                     fontSize="inherit"
@@ -165,6 +165,7 @@ export async function getStaticProps({ locales, locale }) {
       members,
       pages,
     },
+    revalidate: 30
   };
 }
 
