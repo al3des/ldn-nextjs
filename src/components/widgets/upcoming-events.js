@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function UpcomingEvents({ items }) {
   return (
-    <Box sx={{ mx: 'auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 5}}>
+    <Box sx={{ mx: 'auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 5, mb: 8}}>
       {items &&
         items.map((event) => (
           <Card key={event.id} >
