@@ -112,7 +112,7 @@ export async function getAllMembers() {
         }
       }
     }
-  `);
+    `);
 
   return data.members;
 }
@@ -163,4 +163,36 @@ export async function getPageBySlug(locale) {
   );
 
   return data.pages[0];
+}
+
+export async function createInvite(nickname) {
+  console.log({ nickname });
+  // if (!nickname) return;
+
+  const data = await fetchAPI(
+    `
+  mutation($nickname: String!){
+    createInvitesList(data: { nickname: $nickname }) {
+      id
+    }
+  }`,
+    {
+      variables: {
+        nickname,
+      },
+    }
+  );
+  return data;
+}
+
+export async function getAllInvites() {
+  const data = await fetchAPI(
+    `query{
+      invitesLists (stage: DRAFT){
+        id
+        nickname
+      }
+    }`
+  );
+  return data.invitesLists;
 }
