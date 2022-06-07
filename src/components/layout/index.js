@@ -11,8 +11,14 @@ export default function Layout({ children }) {
 
   return (
     <Box sx={{ position: "relative" }}>
-        {children}
-      <Box sx={{ position: "absolute", backgroundColor: 'inherit', top: 0, right: 10 }}>
+      <Box
+        sx={{
+          position: "absolute",
+          backgroundColor: "inherit",
+          top: 0,
+          right: 10,
+        }}
+      >
         <Link href={router.asPath} locale="en">
           en
         </Link>{" "}
@@ -20,6 +26,9 @@ export default function Layout({ children }) {
         <Link href={router.asPath} locale="es">
           es
         </Link>
+      </Box>
+      <Box component="main" sx={{ p: 5, minHeight: "100vh" }}>
+        {children}
       </Box>
       <Footer />
     </Box>
