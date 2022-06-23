@@ -1,4 +1,3 @@
-import { loadDefaultErrorComponents } from "next/dist/server/load-components";
 import { createInvite, getAllInvites } from "../../../src/lib/graphcms";
 
 export default async (req, res) => {

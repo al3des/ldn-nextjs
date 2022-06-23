@@ -196,3 +196,20 @@ export async function getAllInvites() {
   );
   return data.invitesLists;
 }
+
+export async function getConfigFromCMS(){
+
+  const data = await fetchAPI(
+    `
+    query{
+      configs{
+        id
+        maxInvites
+        limitDate
+      }
+    }
+    `
+  )
+
+  return data.configs[0]
+}

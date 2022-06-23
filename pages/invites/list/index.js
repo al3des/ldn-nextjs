@@ -1,11 +1,14 @@
 import React from "react";
 import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { getAllInvites } from "../../../src/lib/graphcms";
+import { getAllInvites, getConfigFromCMS } from "../../../src/lib/graphcms";
+import Image from "next/image";
 
-export default function InvitationList({ count }) {
+import logo from '../../../src/assets/logo-fuccia.svg'
+
+export default function InvitationList({ count, config }) {
   const [nickname, setNickname] = React.useState("");
-  const [spotsAvailable, setSpotsAvailable] = React.useState(10 - count);
+  const [spotsAvailable, setSpotsAvailable] = React.useState(config.maxInvites - count);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,12 +23,13 @@ export default function InvitationList({ count }) {
     const response = await fetch(endpoint, options);
     const { count } = await response.json();
     setNickname("");
-    setSpotsAvailable(10 - count);
+    setSpotsAvailable(config.maxInvites - count);
   };
 
   return (
     <Box>
-      {spotsAvailable > 0 ? (
+      <Image src={logo} />
+      {spotsAvailable > 0 && new Date(config.limitDate) > new Date() ? (
         <>
           <Typography>Invite List</Typography>
           <Typography>
@@ -59,11 +63,13 @@ export default function InvitationList({ count }) {
 
 export async function getStaticProps() {
   const list = await getAllInvites();
-  const config = "getConfigFromCMS()";
+  const config = await getConfigFromCMS()
+
 
   return {
     props: {
       count: list.length,
+      config
     },
   };
 }
