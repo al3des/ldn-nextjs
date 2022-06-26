@@ -17,3 +17,6 @@ yarn-error.log*
 # Next.js
 /.next
 .vercel
+
+# packages
+package.lock.json
