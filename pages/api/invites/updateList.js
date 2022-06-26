@@ -1,4 +1,4 @@
-const { verifyWebhookSignature } = require("@graphcms/utils");
+import { verifyWebhookSignature } from "@graphcms/utils";
 
 export default async function handler(req, res) {
   const secret = process.env.GRAPHCMS_WEBHOOK_SECRET;
@@ -12,6 +12,6 @@ export default async function handler(req, res) {
       return res.status(200).json({ message: "success, revalidated" });
     }
   } catch (error) {
-    return res.status(403).json({ error: "Not authorized." });
+    return res.status(403).json({ error: "Not authorized." + error });
   }
 }
