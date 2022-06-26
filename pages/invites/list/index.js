@@ -29,7 +29,7 @@ export default function InvitationList({ count, config }) {
   return (
     <Box>
       <Image src={logo} />
-      {spotsAvailable > 0 && new Date(config.limitDate) > new Date() ? (
+      {spotsAvailable > 0 && new Date(config.limitDate) < new Date() ? (
         <>
           <Typography>Invite List</Typography>
           <Typography>

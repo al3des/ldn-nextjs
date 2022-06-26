@@ -1,7 +1,6 @@
 import { createInvite, getAllInvites } from "../../../src/lib/graphcms";
 
 export default async (req, res) => {
-  console.log(req.query);
   try {
     const data = await createInvite(req.query.nickname);
     const list = await getAllInvites();
