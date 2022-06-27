@@ -1,18 +1,21 @@
 import React from "react";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, CircularProgress, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { getAllInvites, getConfigFromCMS } from "../../../src/lib/graphcms";
 import Image from "next/image";
 
-import logo from '../../../src/assets/logo-fuccia.svg'
+import logo from "../../../src/assets/logo-fuccia.svg";
 
 export default function InvitationList({ count, config }) {
   const [nickname, setNickname] = React.useState("");
-  const [spotsAvailable, setSpotsAvailable] = React.useState(config.maxInvites - count);
+  const [spotsAvailable, setSpotsAvailable] = React.useState(
+    config.maxInvites - count
+  );
+  const [loading, setLoading] = React.useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const endpoint = "/api/invites/add?nickname=" + nickname;
     const options = {
       method: "POST",
@@ -23,6 +26,7 @@ export default function InvitationList({ count, config }) {
     const response = await fetch(endpoint, options);
     const { count } = await response.json();
     setNickname("");
+    setLoading(false);
     setSpotsAvailable(config.maxInvites - count);
   };
 
@@ -48,8 +52,11 @@ export default function InvitationList({ count, config }) {
               label="Nickname"
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
+              disabled={loading}
             />
-            <Button type="submit">send</Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? <CircularProgress /> : "send"}
+            </Button>
           </Box>
         </>
       ) : (
@@ -63,13 +70,12 @@ export default function InvitationList({ count, config }) {
 
 export async function getStaticProps() {
   const list = await getAllInvites();
-  const config = await getConfigFromCMS()
-
+  const config = await getConfigFromCMS();
 
   return {
     props: {
       count: list.length,
-      config
+      config,
     },
   };
 }
