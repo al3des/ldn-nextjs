@@ -197,8 +197,7 @@ export async function getAllInvites() {
   return data.invitesLists;
 }
 
-export async function getConfigFromCMS(){
-
+export async function getConfigFromCMS() {
   const data = await fetchAPI(
     `
     query{
@@ -209,7 +208,7 @@ export async function getConfigFromCMS(){
       }
     }
     `
-  )
+  );
 
-  return data.configs[0]
+  return data.configs[0];
 }

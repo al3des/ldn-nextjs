@@ -24,7 +24,7 @@ export default function InvitationList({ count, config }) {
       },
     };
     const response = await fetch(endpoint, options);
-    const { count } = await response.json();
+    // const { count } = await response.json();
     setNickname("");
     setLoading(false);
     setSpotsAvailable(config.maxInvites - count);
