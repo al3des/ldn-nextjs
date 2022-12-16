@@ -1,3 +1,7 @@
+export default function HomeOld() {
+  return <Box></Box>;
+}
+
 // import logo from "../src/assets/logo.svg";
 // import styles from "../src/styles/home.module.css";
 
