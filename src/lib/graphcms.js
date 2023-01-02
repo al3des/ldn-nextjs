@@ -164,3 +164,42 @@ export async function getPageBySlug(locale) {
 
   return data.pages[0];
 }
+
+export async function getPortfolios(locale) {
+  const data = await fetchAPI(
+    `
+    query getPortfolios($locale: Locale!){
+      seasonPortfolios(locales: [$locale]){
+      id
+      title
+      mainText
+      image{
+        id
+        url
+        width
+        height
+      }
+      events {
+        id
+        title
+        description
+        date
+        image{
+          id
+          url
+          width
+          height
+        }
+        venueName
+        venueLocation
+      }}
+    }
+  `,
+    {
+      variables: {
+        locale,
+      },
+    }
+  );
+  return data.seasonPortfolios;
+}
