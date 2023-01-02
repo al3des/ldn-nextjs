@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { List, ListItem, Typography } from "@mui/material";
+import { Grid, List, ListItem, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { getAllMembers, getPageBySlug } from "../src/lib/graphcms";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
@@ -116,46 +116,57 @@ export default function Members(props) {
           <Typography variant="h2" className={styles.underlinedTitle}>
             We are
           </Typography>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: [
-                "1fr",
-                "1fr",
-                "repeat(auto-fill, minmax(200px, 1fr))",
-              ],
-              gap: 2,
-              flexGrow: 1,
-            }}
+          <Grid
+            container
+            columns={16}
+            spacing={4}
+            sx={
+              {
+                // display: "grid",
+                // gridTemplateColumns: [
+                //   "1fr",
+                //   "1fr",
+                //   "repeat(auto-fill, minmax(400px, 1fr))",
+                // ],
+                // gap: 2,
+                // flexGrow: 1,
+              }
+            }
           >
             {shuffleArray(props.members).map((member) => (
-              <Box key={member.id} sx={{ position: "relative" }}>
-                <Typography
-                  variant="h3"
-                  sx={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    zIndex: 99999,
-                    p: 2,
-                  }}
-                >
-                  {member.name}
-                </Typography>
-                <Box
-                  className={styles.roundedImage}
-                  sx={{ position: "relative", width: "100%", height: "400px" }}
-                >
-                  <Image
-                    src={member.profilePicture.url}
-                    layout="fill"
-                    objectFit="cover"
+              <Grid item xs={16} md={8} lg={4}>
+                <Box key={member.id} sx={{ position: "relative" }}>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      zIndex: 99999,
+                      p: 2,
+                    }}
+                  >
+                    {member.name}
+                  </Typography>
+                  <Box
                     className={styles.roundedImage}
-                  />
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      height: "400px",
+                    }}
+                  >
+                    <Image
+                      src={member.profilePicture.url}
+                      layout="fill"
+                      objectFit="cover"
+                      className={styles.roundedImage}
+                    />
+                  </Box>
                 </Box>
-              </Box>
+              </Grid>
             ))}
-          </Box>
+          </Grid>
         </Box>
       </Box>
     </>
