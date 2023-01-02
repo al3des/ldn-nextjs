@@ -184,7 +184,7 @@ export async function getPortfolios(locale) {
         title
         description
         date
-        image{
+        image(locales: [en]){
           id
           url
           width
