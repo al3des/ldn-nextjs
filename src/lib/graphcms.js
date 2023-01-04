@@ -60,7 +60,7 @@ export async function getEventBySlug(slug) {
   const data = await fetchAPI(
     `
     query getEventBySlug($slug: String!){
-      event(where: {slug: $slug}){
+      event(where: {slug: $slug}, locales:[en, es]){
         id
         title
         slug
@@ -68,7 +68,7 @@ export async function getEventBySlug(slug) {
         date
         time
         price
-        flyer {
+        flyer (locales: [en]){
           id
           url
           width
@@ -184,7 +184,7 @@ export async function getPortfolios(locale) {
         title
         description
         date
-        image{
+        image(locales: [en]){
           id
           url
           width

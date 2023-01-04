@@ -14,7 +14,10 @@ export default function Member(props) {
             src={props.member.profilePicture.url}
             width={props.member.profilePicture.width}
             height={props.member.profilePicture.height}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </>
       )}
     </Box>

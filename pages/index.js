@@ -10,6 +10,7 @@ import {
   Chip,
   Grid,
   Icon,
+  IconButton,
   List,
   ListItem,
   ListItemAvatar,
@@ -52,7 +53,15 @@ export default function Members(props) {
             justifyContent: "center",
           }}
         >
-          <Image src={logo} width={300} height={300} />
+          <Image
+            src={logo}
+            width={300}
+            height={300}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
           {/* <Typography variant="h2">is:</Typography> */}
         </Box>
 
@@ -83,10 +92,262 @@ export default function Members(props) {
               flexGrow: 1,
             }}
           >
-            <Image src="/stage.jpg" layout="fill" objectFit="cover" />
+            <Image
+              src="/stage.jpg"
+              layout="fill"
+              objectFit="cover"
+              sizes="100vw"
+              style={{
+                objectFit: "cover",
+              }}
+            />
           </Box>
         </Box>
-        <Box
+        <Box>
+          <Typography>
+            Dentro del repertorio que exploramos incorporamos temas
+            tradicionales de la musica colombiana, la chicha peruana y la cumbia
+            villera argentina. Intentamos honrar el hermoso sonido de la cumbia
+            de la manera mas autentica posible siendo fieles al estilo de cada
+            region y con una formacion tipica de los conjuntos de cumbia mas
+            populares.
+          </Typography>
+          <Grid
+            container
+            spacing={4}
+            p={4}
+            sx={{
+              "& .MuiTypography-root": {
+                textShadow: "0 0 5px black",
+                // transform: "translate(-50%, -170%)",
+                // ml: 2,
+              },
+              "& .MuiSvgIcon-root": {
+                fontSize: 120,
+                ml: 2,
+              },
+            }}
+          >
+            <Grid item xs={12} md={4} minHeight={400} position="relative">
+              <Card
+                sx={{
+                  height: "100%",
+                  borderRadius: 10,
+                  p: 0,
+                  backgroundImage:
+                    "linear-gradient(to bottom, #0de0fdff , #39fc48ff ,#dffc01ff, #fa38fbff)",
+                }}
+              >
+                <CardContent sx={{ p: 0, height: "100%" }}>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      zIndex: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h2"
+                      component="h3"
+                      sx={
+                        {
+                          // position: "absolute",
+                          // top: "50%",
+                          // left: "50%",
+                          // transform: "translate(-50%, -150%)",
+                          // zIndex: 2,
+                        }
+                      }
+                    >
+                      Chicha
+                    </Typography>
+                    <IconButton>
+                      <PlayCircleOutlineIcon sx={{ fontSize: 90 }} />
+                    </IconButton>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      height: "100%",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: "100%",
+                        // height: 100,
+                        // top: "50%",
+                        // left: "50%",
+                        // transform: "translate(-50%,-50%)",
+                        zIndex: 0,
+                      }}
+                    >
+                      <Image
+                        src="/chicha-guitar.png"
+                        layout="responsive"
+                        width={400}
+                        height={200}
+                        objectFit="cover"
+                      />
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4} minHeight={400} position="relative">
+              <Card
+                sx={{
+                  height: "100%",
+                  borderRadius: 10,
+                  p: 0,
+                  backgroundImage:
+                    "linear-gradient(to bottom, #fcd015ff, #003992ff, #ce1125ff)",
+                }}
+              >
+                <CardContent sx={{ p: 0, height: "100%" }}>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      zIndex: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h2"
+                      component="h3"
+                      sx={
+                        {
+                          // position: "absolute",
+                          // top: "50%",
+                          // left: "50%",
+                          // transform: "translate(-50%, -150%)",
+                          // zIndex: 2,
+                        }
+                      }
+                    >
+                      Colombian
+                    </Typography>
+                    <IconButton
+                      sx={
+                        {
+                          // position: "absolute",
+                          // top: "50%",
+                          // left: "50%",
+                          // transform: "translate(-50%, -50%)",
+                          // zIndex: 2,
+                        }
+                      }
+                    >
+                      <PlayCircleOutlineIcon sx={{ fontSize: 90 }} />
+                    </IconButton>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      height: "100%",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: "100%",
+                        zIndex: 0,
+                      }}
+                    >
+                      <Image
+                        src="/colombian-hat.png"
+                        layout="responsive"
+                        width={400}
+                        height={200}
+                        objectFit="contain"
+                      />
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4} minHeight={400} position="relative">
+              <Card
+                sx={{
+                  height: "100%",
+                  borderRadius: 10,
+                  p: 0,
+                  backgroundImage:
+                    "linear-gradient(to bottom, #fff, #75aadbff, #fff)",
+                }}
+              >
+                <CardContent sx={{ p: 0, height: "100%" }}>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      zIndex: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h2"
+                      component="h3"
+                      // sx={{
+                      //   position: "absolute",
+                      //   top: "50%",
+                      //   left: "50%",
+                      //   transform: "translate(-50%, -150%)",
+                      //   zIndex: 2,
+                      // }}
+                    >
+                      Villeras
+                    </Typography>
+                    <IconButton>
+                      <PlayCircleOutlineIcon sx={{ fontSize: 90 }} />
+                    </IconButton>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "100%",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: "100%",
+                        // zIndex: 0,
+                      }}
+                    >
+                      <Image
+                        src="/keytar.png"
+                        layout="responsive"
+                        width={400}
+                        height={200}
+                        objectFit="contain"
+                      />
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
+        {/* <Box
           sx={{
             py: 0,
             bgcolor: "primary.main",
@@ -129,46 +390,94 @@ export default function Members(props) {
               <YoutubeEmbed embedId={shuffleArray(videos)[0]} autoplay={true} />
             </Box>
           )}
-        </Box>
-        <Box p={5}>
-          <Typography variant="h2" className={styles.underlinedTitle}>
-            Temporada Europa 2022
-          </Typography>
+        </Box> */}
+        <Box
+          // container
+          // spacing={4}
+          // md={{ display: "flex" }}
+          // gap={4}
+
+          sx={{
+            p: 4,
+            "& .MuiTypography-body1": {
+              mb: 2,
+            },
+            "& :last-child": {
+              mb: "inherit",
+            },
+            backgroundColor: "secondary.main",
+          }}
+        >
+          {/* <Grid item md={6} textAlign="right"> */}
           <Typography
+            variant="h2"
+            // className={styles.underlinedTitle}
             sx={{
-              "& span": {
-                fontSize: 60,
+              minWidth: "100%",
+              textAlign: {
+                xs: "center",
+                md: "inherit",
+              },
+              mb: {
+                xs: 4,
+                md: "inherit",
               },
             }}
           >
-            Honrar el hermoso <span>sonido de la cumbia</span> de la manera mas
-            <span>autentica</span> posible siendo fieles al estilo de cada
-            region y con una formacion tipica de los conjuntos de cumbia mas
-            populares.
+            🎊 Europa 2022 🎉
           </Typography>
+          {/* </Grid> */}
+          {/* <Grid item md={6}> */}
+          <Typography
+            component="p"
+            // variant="h4"
+            // sx={{
+            //   "& span": {
+            //     fontSize: 60,
+            //   },
+            // }}
+          >
+            La cumbia es para nosotros no solo un estilo musical sino tambien un
+            fenomeno cultural que en varios de nosotros esta arraigado y ligado
+            a experiencias que nos conectan con un mundo mucho mas amplio que un
+            mero espectaculo musical.
+          </Typography>
+          <Typography>
+            Estos son algunos de los eventos donde tuvimos el placer de
+            compartir lo que amamos hacer:
+          </Typography>
+          {/* </Grid> */}
+        </Box>
+        <Box
+          p={4}
+          sx={{
+            background:
+              "linear-gradient(180deg, rgba(225,245,40,1) 10%, rgba(127,242,29,1) 43%, rgba(233,76,134,1) 78%);",
+          }}
+        >
           <Grid container columns={12} spacing={4}>
             {portfolios[0].events.map((event) => (
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item key={event.id} xs={12} sm={6} lg={4}>
                 <Card sx={{ borderRadius: 10 }}>
                   {/* <CardHeader
-                    avatar={
-                      <Avatar aria-label="Festival">
-                        <CelebrationIcon />
-                      </Avatar>
-                    }
-                    title={event.title}
-                    subheader={
-                      event.date.length > 1
-                        ? "Summer 2022"
-                        : new Date(event.date[0]).toLocaleDateString(
-                            props.locale,
-                            {
-                              month: "long",
-                              year: "numeric",
-                            }
-                          )
-                    }
-                  /> */}
+                  avatar={
+                    <Avatar aria-label="Festival">
+                      <CelebrationIcon />
+                    </Avatar>
+                  }
+                  title={event.title}
+                  subheader={
+                    event.date.length > 1
+                      ? "Summer 2022"
+                      : new Date(event.date[0]).toLocaleDateString(
+                          props.locale,
+                          {
+                            month: "long",
+                            year: "numeric",
+                          }
+                        )
+                  }
+                /> */}
                   <CardMedia
                     component="img"
                     height="300"
@@ -260,9 +569,13 @@ export default function Members(props) {
                   >
                     <Image
                       src={member.profilePicture.url}
+                      className={styles.roundedImage}
                       layout="fill"
                       objectFit="cover"
-                      className={styles.roundedImage}
+                      sizes="100vw"
+                      style={{
+                        objectFit: "cover",
+                      }}
                     />
                   </Box>
                 </Box>

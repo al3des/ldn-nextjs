@@ -31,9 +31,12 @@ export default function UpcomingEvents({ items }) {
                   src={event.flyer.url}
                   height={550}
                   width={450}
-                  layout="responsive"
-                  objectFit="contain"
-                />
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain"
+                  }} />
               </CardMedia>
 
               {/* <Typography variant="body2" color="text.secondary">
