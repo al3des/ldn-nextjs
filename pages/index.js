@@ -34,7 +34,7 @@ import YoutubeEmbed from "../src/components/widgets/youtube-embed";
 export default function Members(props) {
   const { portfolios } = props;
   const [loadVideo, setLoadVideo] = React.useState(false);
-  const videos = ["1uxt6RqGg-k", "aLe_wzVaul8"];
+  const videos = ["hlY2CIwHcPo"];
   return (
     <>
       <Box
@@ -130,101 +130,7 @@ export default function Members(props) {
             </Box>
           )}
         </Box>
-        <Box p={5}>
-          <Typography variant="h2" className={styles.underlinedTitle}>
-            Temporada Europa 2022
-          </Typography>
-          <Typography
-            sx={{
-              "& span": {
-                fontSize: 60,
-              },
-            }}
-          >
-            Honrar el hermoso <span>sonido de la cumbia</span> de la manera mas
-            <span>autentica</span> posible siendo fieles al estilo de cada
-            region y con una formacion tipica de los conjuntos de cumbia mas
-            populares.
-          </Typography>
-          <Grid container columns={12} spacing={4}>
-            {portfolios[0].events.map((event) => (
-              <Grid item xs={12} sm={6} md={4}>
-                <Card sx={{ borderRadius: 10 }}>
-                  {/* <CardHeader
-                    avatar={
-                      <Avatar aria-label="Festival">
-                        <CelebrationIcon />
-                      </Avatar>
-                    }
-                    title={event.title}
-                    subheader={
-                      event.date.length > 1
-                        ? "Summer 2022"
-                        : new Date(event.date[0]).toLocaleDateString(
-                            props.locale,
-                            {
-                              month: "long",
-                              year: "numeric",
-                            }
-                          )
-                    }
-                  /> */}
-                  <CardMedia
-                    component="img"
-                    height="300"
-                    image={event.image.url}
-                    alt="Fête de la Musique"
-                  />
-                  <CardContent>
-                    <Typography variant="h4" component="h3" p={0}>
-                      {event.title}
-                    </Typography>
-                    <Typography>{event.description}</Typography>
-                    <List
-                      sx={{
-                        "& .MuiListItem-root": { px: 0 },
-                      }}
-                    >
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar sx={{ bgcolor: "#D62598", color: "white" }}>
-                            <MapIcon />
-                          </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={event.venueName}
-                          secondary={event.venueLocation}
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar sx={{ bgcolor: "#D62598", color: "white" }}>
-                            <EventIcon />
-                          </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={event.date.map((date) => (
-                            <Chip
-                              label={new Date(date).toLocaleDateString(
-                                "es-AR",
-                                {
-                                  day: "2-digit",
-                                  month: "2-digit",
-                                }
-                              )}
-                              sx={{ mr: 2, my: 1 }}
-                            />
-                          ))}
-                          // secondary={<Chip label="hola" variant="outlined" />}
-                        />
-                      </ListItem>
-                    </List>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+
         <Box
           sx={{
             p: 5,
